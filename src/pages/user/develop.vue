@@ -22,7 +22,7 @@
   import _ from 'lodash'
 
   /**
-   * table组件
+   * table 组件
    */
 
   const tdComponent = {

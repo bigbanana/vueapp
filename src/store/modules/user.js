@@ -1,9 +1,4 @@
-/*
-* @Author: zhangpeng
-* @Date:   2017-03-23 09:05:40
-* @Last Modified by:   zhangpeng
-* @Last Modified time: 2017-03-24 12:50:31
-*/
+
 import Vue from 'vue'
 import router from '../../router'
 import { Loading } from '../../components'
