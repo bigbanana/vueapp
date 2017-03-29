@@ -34,7 +34,7 @@
     },
     methods: {
       submitForm() {
-        this.$store.dispatch('user_login',{
+        this.$store.dispatch('userLogin',{
           username: this.username,
           password: this.password
         })

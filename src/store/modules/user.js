@@ -17,15 +17,15 @@ export default {
     }
   },
   mutations: {
-    user_init (state,payload) {
+    userInit (state,payload) {
       state.login = payload.login
       state.lastUser = payload.lastUser
     },
-    user_login (state,payload) {
+    userLogin (state,payload) {
       state.login = payload.login
       state.lastUser = payload.lastUser
     },
-    user_clearLoginInfo (state) {
+    userClearLoginInfo (state) {
       state.login = defaultLogin
     }
   },
@@ -35,13 +35,13 @@ export default {
     }
   },
   actions: {
-    user_login ({commit,state},data) {
+    userLogin ({commit,state},data) {
       let loading = Loading.service({ fullscreen: true })
       return new Promise((resolve,reject) => {
         setTimeout(function(){
           Vue.http.get('login.php',data).then(function(res){
             loading.close()
-            commit('user_login',res.body)
+            commit('userLogin',res.data)
             router.push(router.app.$route.query.redirect || '/')
             resolve()
           },function(){
@@ -50,26 +50,24 @@ export default {
         },100)
       })
     },
-    user_logout (context,data) {
-      context.commit('user_clearLoginInfo')
+    userLogout (context,data) {
+      context.commit('userClearLoginInfo')
       router.push('/logout')
     },
-    user_init ({commit,state},data) {
+    userInit ({commit,state},data) {
       return new Promise((resolve,reject) => {
-        //Vue.http.get('userinfo.php').then(function(res){
-        Vue.http.delete('login.php').then(function(res){
-          commit('user_init',res.body);
+        Vue.http.get('userinfo.php').then(function(res){
+          commit('userInit',res.data);
           resolve()
         },function(){
           debugger
         });
       })
-        
     },
-    user_register ({commit,state},data) {
+    userRegister ({commit,state},data) {
       console.log(data)
     },
-    user_forget ({commit,state},data) {
+    userForget ({commit,state},data) {
       console.log(data)
     }
   }

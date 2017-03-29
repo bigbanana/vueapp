@@ -2,7 +2,6 @@
   <div>
     <h2>{{ $store.state.User.login.name }}</h2>
     <div>欢迎您！</div>
-    <el-button type="primary" size="small" @click="logout">退出登录</el-button>
     <el-button type="primary" size="small" @click="dialogVisible = true">历史记录</el-button>
     <el-button type="primary" size="small" @click="loginVisible = true">登录</el-button>
     <el-button type="primary" @click="openFullScreen" v-loading.fullscreen.lock="fullscreenLoading">loading</el-button>
@@ -64,9 +63,6 @@
         setTimeout(() => {
           this.fullscreenLoading = false;
         }, 3000);
-      },
-      logout() {
-        this.$store.dispatch('user_logout');
       }
     }
   }

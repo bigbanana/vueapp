@@ -60,7 +60,7 @@
     },
     methods: {
       submitForm() {
-        this.$store.dispatch('user_register',{
+        this.$store.dispatch('userRegister',{
           username: this.username,
           password: this.password
         })

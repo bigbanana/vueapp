@@ -24,7 +24,7 @@
     },
     methods: {
       submitForm() {
-        this.$store.dispatch('user_forget',{
+        this.$store.dispatch('userForget',{
           email: this.email,
         })
       }

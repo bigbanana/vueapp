@@ -12,7 +12,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to,from,next) => {
-
   //let loading = Loading.service({ fullscreen: true })
   if(to.matched.some(record => record.meta.requiresAuth)){
     if(!store.getters.user_isLogin){
@@ -34,9 +33,6 @@ router.beforeEach((to,from,next) => {
   }else{
     next()
   }
-
-
-
 })
 
 export default router

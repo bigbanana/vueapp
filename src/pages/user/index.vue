@@ -1,10 +1,13 @@
 <template>
-  <el-card>
-    <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane v-for="item in tabs" :label="item.label" :name="item.path" :key="item.path"></el-tab-pane>
-    </el-tabs>
-    <transition name="slide-fade" mode="out-in" appear><keep-alive><router-view></router-view></keep-alive></transition>
-  </el-card>
+  <section>
+    <la-header></la-header>
+    <el-card>
+      <el-tabs v-model="activeName" @tab-click="handleClick">
+        <el-tab-pane v-for="item in tabs" :label="item.label" :name="item.path" :key="item.path"></el-tab-pane>
+      </el-tabs>
+      <transition name="slide-fade" mode="out-in" appear><keep-alive><router-view></router-view></keep-alive></transition>
+    </el-card>
+  </section>
 </template>
 
 <script>

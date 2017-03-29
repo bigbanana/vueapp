@@ -9,7 +9,6 @@
       <tableComponent :list="tableData" :heads="tableHead" style="width:100%;"></tableComponent>
     </div>
   </div>
-    
 </template>
 
 <script>
@@ -103,15 +102,14 @@
         var that = this
         return new Promise((resolve,reject) => {
           setTimeout(()=>{
-            Vue.http.get('list.php').then(function({body}){
+            Vue.http.get('list.php').then(function({data}){
               that.loading = false
-              that.tableData.push(...body)
+              that.tableData.push(...data.data)
               resolve()
             },function(){
               debugger
             })
           },1000)
-            
         })
       },
       sort () {
